@@ -76,7 +76,7 @@ body {
 }
 
 body애눈 .box에 대한 어떠한 내용도 적지 않는다. 
-box의 부모가 flex container다. 그리고 붙어있는 부모여야 한다. 
+box의 부모가 flex container다. 그리고 붙어있는 부모여야 한다.   
 다른것의 부모가 될 수 없고 바로 붙어있는 부모여야 한다. 
 예를들어 아래처럼 .wrapper로 감싸면 body에 display: felxbox 해줘도 안먹는다. 
 
@@ -361,7 +361,7 @@ flexbox는 많은 reverse를 가지고 있다.
 
 .father {
     display: flex;
-    flexdirection: row-reverse;
+    flex-direction: row-reverse;
     /* Main Axis */
     justify-content: space-between;
     /* Cross Axis */
@@ -446,7 +446,7 @@ row-reverse고 wrap이라면
 자 그럼 wrap으로 하고 브라우저 크기를 줄였을 때 
 첫째줄과 둘째줄 사이의 간격, 이 공간, line사이의 공간 이 공간도 수정이 가능한다. 
 1 2 3 4 <- 이줄과
- 5  6  <- 이줄 사이의 공가 
+ 5  6  <- 이줄 사이의 공간
 
 요거를 수정하는거를 뭐로 하냐면 align-content 로 한다. 
 align-content에서 line을 수정할 때 justify-content와 비슷하지만 line에 대한 거다. 
@@ -608,7 +608,7 @@ flex-shrink와 같지만 반대로 작용한다.
 *********************************************************************************************************************************************
 
 위처럼 코드를 짜면 브라우저를 충분히 넓게 키워놓았을 때 
-width가 300px인 box가 3개가 있고 브라우저의 크기가 충분히 넓으니 빈공간도 있다. 
+width가 200px인 box가 3개가 있고 브라우저의 크기가 충분히 넓으니 빈공간도 있다. 
 
 근디 내가 여기서 가운데에있는 2번 박스에 flex-grow: 1; 를 설정하면 
 가운데에 있는 2번 box가 그냥 갑자기 커지면서 양옆 1,3번 box에 붙어버린다. 
@@ -651,7 +651,7 @@ flex-grow의 기본값은 0이다.
 }
 *********************************************************************************************************************************************
 
-근디 만약에 위처럼 3번 box도  flex-gridL: 1;을 가져가면 어떻게 될까? 
+근디 만약에 위처럼 3번 box도  flex-grow: 1;을 가져가면 어떻게 될까? 
 
 일단 이제 빈공간은 2번과 3번이 노나가지게 된다. 
 어떻게 나누냐면 3번이 1/3, 2번이 2/3 이렇게 나눠가지게 되는거다. 남은공간들을!
@@ -946,7 +946,7 @@ grid-template-columns, grid-template-rows, column-gap, row-gap, gap 을 배웠�
     display: grid;
     grid-template-columns: 200px 200px 200px 200px;
     grid-template-rows: 300px 300px 300px 300px;
-}
+}   
 
 근데 이거 너무 비효율 적이다. 
 아래처럼 쉽게 바꿀 수 있다. 
@@ -1302,7 +1302,8 @@ content content content nav
 content content content nav
 footer 
 
-이제 footer를 아래처럼 컬름을 늘려주면 우리가 원하는 구조가 나온다. 
+이제 footer를 아래처럼 컬럼을 늘려주면 우리가 원하는 구조가 나온다. 
+
 .grid {
     grid-template-areas: 
     "header header header header"
@@ -1541,7 +1542,7 @@ fraction은 사용가능한 공간을 뜻한다.
 예를들면 100px이 컴퓨터에서는 별로 안크지만 핸드폰에서는 또 개크니까 이제 grid의 fr을 통해 브라우저의 크기에 따라 유연하게 만들어줄 수 있다. 
 
 grid-template-columns: 4fr 1fr 1fr 1fr;
-이렇게 만들면 나머지 3개보다 4배큰 박스하나랑 나머지 3개 박스가 알아서 비율에 맞춰서 구성되게 괸다. 
+이렇게 만들면 나머지 3개보다 4배큰 박스하나랑 나머지 3개 박스가 알아서 비율에 맞춰서 구성하게 된다. 
 이제 아주 간단하게 레이아웃을 짤 수 있을것같다. 
 
 !!!흔히 하는 실수!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1564,7 +1565,7 @@ grid-template-columns: 4fr 1fr 1fr 1fr;
 
 .grid {
     display: grid;
-    height: 50vh;   <- 내 화면의 절반이라는 의마, 암튼 이렇게 높이를 지정을 해줘야 row에서 fr이 의미가 있다. 
+    height: 50vh;   <- 내 화면의 절반이라는 의미, 암튼 이렇게 높이를 지정을 해줘야 row에서 fr이 의미가 있다. 
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 10px;
@@ -1621,7 +1622,7 @@ grid-template-columns: 4fr 1fr 1fr 1fr;
 justify-items, align-itme에 대해 아라보자. 
 이 property는 부모에게 있다.(grid container에 있다.)
 
-justify-items의 기본값은 streth다. 
+justify-items의 기본값은 stretch다. 
 
 이 말은 grid-container는 모든 grid 자식을 가지고 있고 그리고 자식들을 늘여서 본인을 채우게 한다는 것이다. 
 
@@ -2104,7 +2105,7 @@ auto-fit, auto-fill 이 둘은 repeat function에만 사용한다.
 
 
 -.
-자 우리는 가끔 머리속에있는 content를 디자인 하고싶을 때 가 있지. 이개 잔쩌 CSS grid가 개쩌는 이유인거라네.
+자 우리는 가끔 머리속에있는 content를 디자인 하고싶을 때 가 있지. 이개 진짜 CSS grid가 개쩌는 이유인거라네.
 생각했던 content 사이즈를 직접 디자인 할 수 있기 때문이니깐.
 
 
